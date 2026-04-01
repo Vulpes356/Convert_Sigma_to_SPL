@@ -1,0 +1,9 @@
+{
+    "cs-method": "method",
+    "cs-uri-stem": "uri_stem",
+    "cs-uri-query": "uri_query",
+    "cs-useragent": "useragent",
+    "cs-user-agent": "useragent",
+    "cs-referer": "referer",
+    "sc-status": "status"
+}

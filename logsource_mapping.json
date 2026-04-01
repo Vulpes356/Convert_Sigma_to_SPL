@@ -1,0 +1,42 @@
+{
+  "windows": {
+    "NONE": { "index": "main", "sourcetype": "WinEventLog", "filter": "" },
+    "process_creation": { "index": "main", "sourcetype": "XmlWinEventLog", "filter": "(EventCode=1 OR EventCode=4688)" },
+    "network_connection": { "index": "main", "sourcetype": "XmlWinEventLog", "filter": "(EventCode=3 OR EventCode=5156)" },
+    "sysmon": { "index": "main", "sourcetype": "XmlWinEventLog", "filter": "LogName=Microsoft-Windows-Sysmon/Operational" },
+    "powershell": { "index": "main", "sourcetype": "WinEventLog", "filter": "(EventCode=4104 OR EventCode=4103)" },
+    "ps_script": { "index": "main", "sourcetype": "WinEventLog", "filter": "EventCode=4104" },
+    "ps_module": { "index": "main", "sourcetype": "WinEventLog", "filter": "EventCode=4103" },
+    "AppLocker": { "index": "main", "sourcetype": "XmlWinEventLog", "filter": "LogName=Microsoft-Windows-AppLocker/*" },
+    "security": { "index": "main", "sourcetype": "WinEventLog", "filter": "LogName=Security | rename EventCode as EventID, Logon_Type as LogonType, Source_Network_Address as IpAddress | search " },
+    "application": { "index": "main", "sourcetype": "WinEventLog", "filter": "LogName=Application" },
+    "system": { "index": "main", "sourcetype": "WinEventLog", "filter": "LogName=System" },
+    "windefend": { "index": "main", "sourcetype": "XmlWinEventLog", "filter": "SourceName=\"Windows Defender\"" },
+    "dns-client": { "index": "main", "sourcetype": "XmlWinEventLog", "filter": "EventCode=22" },
+    "file_event": { "index": "main", "sourcetype": "XmlWinEventLog", "filter": "(EventCode=11 OR EventCode=4663)" },
+    "registry_event": { "index": "main", "sourcetype": "XmlWinEventLog", "filter": "(EventCode=12 OR EventCode=13 OR EventCode=14)" },
+    "image_load": { "index": "main", "sourcetype": "XmlWinEventLog", "filter": "EventCode=7" },
+    "driver_load": { "index": "main", "sourcetype": "XmlWinEventLog", "filter": "EventCode=6" },
+    "create_remote_thread": { "index": "main", "sourcetype": "XmlWinEventLog", "filter": "EventCode=8" },
+    "wmi_event": { "index": "main", "sourcetype": "XmlWinEventLog", "filter": "(EventCode=19 OR EventCode=20 OR EventCode=21)" },
+    "terminalservices-localsessionmanager": { "index": "main", "sourcetype": "XmlWinEventLog", "filter": "LogName=Microsoft-Windows-TerminalServices-LocalSessionManager/Operational" },
+    "taskscheduler": { "index": "main", "sourcetype": "XmlWinEventLog", "filter": "LogName=Microsoft-Windows-TaskScheduler/Operational" }
+  },
+  "linux": {
+    "NONE": { "index": "main", "sourcetype": "syslog", "filter": "" },
+    "audit": { "index": "main", "sourcetype": "linux_auditd", "filter": "" },
+    "syslog": { "index": "main", "sourcetype": "syslog", "filter": "" },
+    "sshd": { "index": "main", "sourcetype": "linux_secure", "filter": "process=sshd" },
+    "cron": { "index": "main", "sourcetype": "syslog", "filter": "process=cron" },
+    "clamav": { "index": "main", "sourcetype": "linux_secure", "filter": "process=clamav" },
+    "vsftpd": { "index": "main", "sourcetype": "syslog", "filter": "process=vsftpd" },
+    "process_creation": { "index": "main", "sourcetype": "linux_auditd", "filter": "" },
+    "network_connection": { "index": "main", "sourcetype": "linux_auditd", "filter": "" },
+    "file_event": { "index": "main", "sourcetype": "linux_auditd", "filter": "" }
+  },
+  "webserver": {
+    "NONE": { "index": "main", "sourcetype": "web_access", "filter": "" },
+    "apache": { "index": "main", "sourcetype": "apache_access", "filter": "" },
+    "nginx": { "index": "main", "sourcetype": "nginx_access", "filter": "" }
+  }
+}
