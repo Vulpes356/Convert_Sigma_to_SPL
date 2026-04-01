@@ -40,8 +40,6 @@ python .\main_convert.py --file .\SigmaRules\SigmaHQ\example.yml
 Output terminal
 ```plaintext
 From .\SigmaRules\SigmaHQ\example.yml:
-
-```
 index="main" sourcetype="XmlWinEventLog" (EventCode=1 OR EventCode=4688)
   (ParentImage="*\\GoAnywhere\\tomcat\\*")
   AND ((((Image="*\\powershell.exe" OR Image="*\\powershell_ise.exe" OR Image="*\\pwsh.exe"))
@@ -50,5 +48,4 @@ index="main" sourcetype="XmlWinEventLog" (EventCode=1 OR EventCode=4688)
       OR (CommandLine="*whoami*" OR CommandLine="*systeminfo*" OR CommandLine="*dsquery*" OR CommandLine="*localgroup administrators*" OR CommandLine="*nltest*" OR CommandLine="*samaccountname=*" OR CommandLine="*adscredentials*" OR CommandLine="*o365accountconfiguration*" OR CommandLine="*.DownloadString(*" OR CommandLine="*.DownloadFile(*" OR CommandLine="*FromBase64String(*" OR CommandLine="*System.IO.Compression*" OR CommandLine="*System.IO.MemoryStream*" OR CommandLine="*curl*")))
     OR ((Image="*\\cmd.exe" AND (CommandLine="*powershell*" OR CommandLine="*whoami*" OR CommandLine="*net.exe*" OR CommandLine="*net1.exe*" OR CommandLine="*rundll32*" OR CommandLine="*quser*" OR CommandLine="*nltest*" OR CommandLine="*curl*"))
       OR ((CommandLine="*bitsadmin*" OR CommandLine="*certutil*" OR CommandLine="*mshta*" OR CommandLine="*cscript*" OR CommandLine="*wscript*"))))
-```
 ```
