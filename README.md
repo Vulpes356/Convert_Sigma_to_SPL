@@ -13,9 +13,12 @@ cd Convert_Sigma_to_SPL
 
 ## Usage
 ### Arguments:
-    * `--file`  : Path to a single Sigma file (`.yml`)
-    * `--folder`: Path to the folder containing Sigma files
-    * `--table` : (Optional) Table query for the final SPL query
+
+| Argument | Description |
+|----------|-------------|
+| `--file` | Path to a single Sigma file (`.yml`) |
+| `--folder` | Path to the folder containing Sigma files |
+| `--table` | (Optional) Table query for the final SPL query |
 
 ### Command
 Convert from a single sigma file.
@@ -38,5 +41,14 @@ Output terminal
 ```plaintext
 From .\SigmaRules\SigmaHQ\example.yml:
 
-index="main" sourcetype="XmlWinEventLog" (EventCode=1 OR EventCode=4688)  (ParentImage="*\\GoAnywhere\\tomcat\\*") AND ((((Image="*\\powershell.exe" OR Image="*\\powershell_ise.exe" OR Image="*\\pwsh.exe")) AND ((CommandLine="*IEX*" AND CommandLine="*enc*" AND CommandLine="*Hidden*" AND CommandLine="*bypass*") OR (match(CommandLine, "net\\s+user") OR match(CommandLine, "net\\s+group") OR match(CommandLine, "query\\s+session")) OR (CommandLine="*whoami*" OR CommandLine="*systeminfo*" OR CommandLine="*dsquery*" OR CommandLine="*localgroup administrators*" OR CommandLine="*nltest*" OR CommandLine="*samaccountname=*" OR CommandLine="*adscredentials*" OR CommandLine="*o365accountconfiguration*" OR CommandLine="*.DownloadString(*" OR CommandLine="*.DownloadFile(*" OR CommandLine="*FromBase64String(*" OR CommandLine="*System.IO.Compression*" OR CommandLine="*System.IO.MemoryStream*" OR CommandLine="*curl*"))) OR ((Image="*\\cmd.exe" AND (CommandLine="*powershell*" OR CommandLine="*whoami*" OR CommandLine="*net.exe*" OR CommandLine="*net1.exe*" OR CommandLine="*rundll32*" OR CommandLine="*quser*" OR CommandLine="*nltest*" OR CommandLine="*curl*")) OR ((CommandLine="*bitsadmin*" OR CommandLine="*certutil*" OR CommandLine="*mshta*" OR CommandLine="*cscript*" OR CommandLine="*wscript*"))))
+```
+index="main" sourcetype="XmlWinEventLog" (EventCode=1 OR EventCode=4688)
+  (ParentImage="*\\GoAnywhere\\tomcat\\*")
+  AND ((((Image="*\\powershell.exe" OR Image="*\\powershell_ise.exe" OR Image="*\\pwsh.exe"))
+    AND ((CommandLine="*IEX*" AND CommandLine="*enc*" AND CommandLine="*Hidden*" AND CommandLine="*bypass*")
+      OR (match(CommandLine, "net\\s+user") OR match(CommandLine, "net\\s+group") OR match(CommandLine, "query\\s+session"))
+      OR (CommandLine="*whoami*" OR CommandLine="*systeminfo*" OR CommandLine="*dsquery*" OR CommandLine="*localgroup administrators*" OR CommandLine="*nltest*" OR CommandLine="*samaccountname=*" OR CommandLine="*adscredentials*" OR CommandLine="*o365accountconfiguration*" OR CommandLine="*.DownloadString(*" OR CommandLine="*.DownloadFile(*" OR CommandLine="*FromBase64String(*" OR CommandLine="*System.IO.Compression*" OR CommandLine="*System.IO.MemoryStream*" OR CommandLine="*curl*")))
+    OR ((Image="*\\cmd.exe" AND (CommandLine="*powershell*" OR CommandLine="*whoami*" OR CommandLine="*net.exe*" OR CommandLine="*net1.exe*" OR CommandLine="*rundll32*" OR CommandLine="*quser*" OR CommandLine="*nltest*" OR CommandLine="*curl*"))
+      OR ((CommandLine="*bitsadmin*" OR CommandLine="*certutil*" OR CommandLine="*mshta*" OR CommandLine="*cscript*" OR CommandLine="*wscript*"))))
+```
 ```
