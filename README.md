@@ -49,3 +49,5 @@ index="main" sourcetype="XmlWinEventLog" (EventCode=1 OR EventCode=4688)
     OR ((Image="*\\cmd.exe" AND (CommandLine="*powershell*" OR CommandLine="*whoami*" OR CommandLine="*net.exe*" OR CommandLine="*net1.exe*" OR CommandLine="*rundll32*" OR CommandLine="*quser*" OR CommandLine="*nltest*" OR CommandLine="*curl*"))
       OR ((CommandLine="*bitsadmin*" OR CommandLine="*certutil*" OR CommandLine="*mshta*" OR CommandLine="*cscript*" OR CommandLine="*wscript*"))))
 ```
+Search in Splunk
+![Result image](img/result.png)
